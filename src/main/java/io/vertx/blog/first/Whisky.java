@@ -4,7 +4,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Whisky {
 
-  private static final AtomicInteger COUNTER = new AtomicInteger();
+  private static final AtomicInteger COUNTER = new AtomicInteger(1);
 
   private final int id;
 

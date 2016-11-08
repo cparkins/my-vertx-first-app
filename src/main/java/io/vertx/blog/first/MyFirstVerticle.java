@@ -39,15 +39,8 @@ public class MyFirstVerticle extends AbstractVerticle {
     // Create a router object.
     Router router = Router.router(vertx);
 
-    // Bind "/" to our hello message.
-    router.route("/").handler(routingContext -> {
-      HttpServerResponse response = routingContext.response();
-      response
-          .putHeader("content-type", "text/html")
-          .end("<h1>Hello from my first Vert.x 3 application</h1>");
-    });
-
-    router.route("/assets/*").handler(StaticHandler.create("assets"));
+    // Bind "/" to the index page
+    router.route("/").handler(StaticHandler.create("assets"));
 
     router.get("/api/whiskies").handler(this::getAll);
     router.route("/api/whiskies*").handler(BodyHandler.create());
